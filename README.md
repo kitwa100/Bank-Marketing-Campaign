@@ -1,6 +1,13 @@
 # Bank-Marketing-Campaign
 
 ### Table of content
+- [Project overview](#Project-overview)
+- [Data sources](#Data-sources)
+- [Tools](#Tools)
+- [Data cleaning](#Data-cleaning)
+- [Exploratory Data Analysis](#Exploratory-Data-Analysis)
+- [Insights](#Insights) 
+- [Recommendations](#Recommendations)
 
 ### Project overview
 This dataset captures the outcomes of direct marketing campaigns conducted by a Portuguese banking institution. it is related with direct marketing campaigns (phone calls) of a Portuguese banking institution. The classification goal is to predict if the client will subscribe a term deposit (variable y). This is to find the best strategy to improve for the next marketing campaign .
@@ -17,6 +24,7 @@ This dataset captures the outcomes of direct marketing campaigns conducted by a 
 ### Data cleaning
 - Missing value
 - Duplicate
+
 ### Exploratory Data Analysis
 1. Which customers with Customer Demographics "age, job, marital and education" show the highest subscription "y"? 
 2. How do financial attributes—such as average yearly balance, housing loans, or personal loans—correlate with a client's willingness to open a term deposit?
@@ -31,7 +39,7 @@ This dataset captures the outcomes of direct marketing campaigns conducted by a 
 11. How does the conversion rate (percentage of 'yes' outcomes in the y column) change incrementally with each additional contact attempt recorded in the campaign column?"
 12. How predictive is past customer behavior on current campaign success?
 
-### Findings/Insights 
+### Insights 
 
 | **Demographics** |
 | --- |
@@ -76,37 +84,25 @@ This dataset captures the outcomes of direct marketing campaigns conducted by a 
 ### Fatigue and Familiarity
 
 1. Client Fatigue: Conversion Decay by Current Campaign Volume (campaign)- The variable campaign tracks the total number of contacts performed during the current marketing wave for a specific client. The data shows a strict diminishing marginal return that quickly devolves into severe client friction. 
-
  2. The Familiarity Effect: Conversion Rate by Historical Touchpoints (previous)
 In stark contrast to current campaign volume, the variable previous (the number of contacts performed before the current campaign) reveals a positive correlation with success.
-
 3. Historical Interactions (previous) - Prioritize warm leads. Filter dialing queues to prioritize clients who responded positively or engaged meaningfully in past quarters.
 
 <img width="800" height="800" alt="Familiarity   fatig" src="https://github.com/user-attachments/assets/16b663ae-90ec-403f-9c1d-826fe1be919b" />
 
 ### Combating Class Imbalance
 
-- The target variable y is heavily imbalanced, with only about 10–12% of clients subscription rate, a naive model could achieve 88% accuracy just by guessing "no" every time. Evaluation Metrics: Avoid using accuracy, as a model that predicts "no" for every customer will still achieve high overall accuracy on heavily skewed banking dat
+- The target variable y is heavily imbalanced, with only about 12% of clients subscription rate, a naive model could achieve 88% accuracy just by guessing "no" every time. 
 
 <img width="948" height="500" alt="Imbalance" src="https://github.com/user-attachments/assets/4f42d29e-334d-412b-8d69-8dc8375f1614" />
 
-
-
 ### Recommendations
-#### Strategic Targeting Framework
 
-1. Target Previous Successes: Prioritize clients with a poutcome of "success" from past campaigns.
+1. Target Previous Successes: Prioritize clients with a poutcome of "success" from past campaigns and recent prior contacts (pdays/previous) strongly signal a higher likelihood of subscription.
 Conversion rates spike significantly for individuals who previously engaged.
 2. Focus on Retirees and Students: Segment by job type; retirees and students show higher relative subscription rates to term deposits than blue-collar workers.
 3. Clean the Contact Data: Stop wasting resources on "unknown" channels. Prioritize data-cleaning campaigns to capture valid cell phone or telephone numbers before launching a marketing push.
 4. Shift Campaign Budgets: Allocate a larger portion of your annual marketing budget and agent hours to March and December. Scale back aggressive outbound calling in May, or use that month to test alternative, lower-cost digital offers.
 5. Optimize Call Scheduling: Front-load your calling queues. Focus heavy sales pushes during the first half of the month—specifically targeting dates around the 2nd and 10th—and avoid aggressive outreach on the 20th and 29th when client receptiveness is lowest.
 6. Engagement & Fatigue: Longer call durations correlate with higher conversions, whereas over-contacting within the same campaign (campaign) causes customer fatigue and lowers success rates.
-7. Historical Impact: A successful previous outcome (poutcome) and recent prior contacts (pdays/previous) strongly signal a higher likelihood of subscription.
-8. Interaction Power: Past campaign success (poutcome=success) remains the single strongest behavioral predictor for repeat term deposit subscription.
-9. Call Duration Impact: Call duration shows the strongest positive correlation with deposit subscription; however, it is frequently excluded from predictive models because duration is only known after a call ends, making it useless for pre-campaign targeting. 
-10. Demographic Trends: Retired individuals and students often display a higher relative propensity to subscribe compared to other working segments, despite lower overall volume.
-
-11. Class Imbalance: The target variable y is heavily imbalanced, with only about 10–12% of clients subscribing, requiring techniques like SMOTE or weighted Logistic Regression for accurate classification.
-
 
