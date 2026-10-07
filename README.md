@@ -84,6 +84,13 @@ In stark contrast to current campaign volume, the variable previous (the number 
 
 <img width="800" height="800" alt="Familiarity   fatig" src="https://github.com/user-attachments/assets/16b663ae-90ec-403f-9c1d-826fe1be919b" />
 
+### Combating Class Imbalance
+
+- The target variable y is heavily imbalanced, with only about 10–12% of clients subscription rate, a naive model could achieve 88% accuracy just by guessing "no" every time. Evaluation Metrics: Avoid using accuracy, as a model that predicts "no" for every customer will still achieve high overall accuracy on heavily skewed banking dat
+
+<img width="948" height="500" alt="Imbalance" src="https://github.com/user-attachments/assets/4f42d29e-334d-412b-8d69-8dc8375f1614" />
+
+
 
 ### Recommendations
 #### Strategic Targeting Framework
