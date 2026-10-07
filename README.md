@@ -46,4 +46,49 @@ This dataset captures the outcomes of direct marketing campaigns conducted by a 
 
 <img width="900" height="400" alt="Customer Demographics" src="https://github.com/user-attachments/assets/e57b89ff-ded1-4bbb-b079-998be526c530" />
 
+| **Financial History** |
+| --- |
+| **Default:** Do they already have a credit account that is in default (unpaid bills)? (yes/no). |
+| **Housing:** Do they have a housing loan or mortgage with the bank? (yes/no). |
+| **Loan:** Do they have a personal loan? (yes/no). |
+| **Balance:** Average yearly account balance in Euros (numeric) |
+
+1. Negative Balance Impact: Clients with credit in default (default=yes) rarely subscribe to term deposits.
+2. Existing Debt Effect: Customers with active housing loans (housing=yes) are often less likely to lock funds into term deposits compared to non-borrowers.
+3. Liquidity Correlation: Higher average yearly balance strongly correlates with a higher positive conversion rate for long-term investments.
+
+<img width="800" height="600" alt="Financial History" src="https://github.com/user-attachments/assets/a4370ebd-f14e-4eb3-ac0a-4baebb69caf5" />
+
+| **Campaign & Contact Details** |
+| --- |
+| **Contact, day, and month:** Capture the communication channel. How the bank reached them (cellular or telephone) and the specific date/month of the last contact. |
+| **Duration:** Last contact duration in seconds. It heavily impacts the target variable but is unknown before a call, so it is often excluded for realistic modeling. |
+| **Campaign:** Number of contacts performed during the current campaign. |
+| **Pdays and previous:** Track the days since the last contact from a previous campaign and the total number of prior contacts, where -1 or 999 indicates no previous contact. |
+| **Poutcome:** Outcome of the prior marketing campaign. What happened during the last campaign? (success, failure, other, unknown). |
+
+1. Communication Channel Effectiveness: Unknown contact methods are highly inefficient, resulting in a 95% unsubscribe rate and only a 5% conversion rate. In contrast, direct outreach via telephone leads with a 15% subscription rate, closely followed by cellular at 14%.
+2. Monthly Seasonality: December and March are peak months for conversions, yielding exceptional subscription rates of 45% and 42% respectively. Conversely, May is the worst-performing month, dragging success down to its lowest point of 6.7%.
+3. Day-of-Month Timing: Timing within the month matters significantly. The 2nd and 10th days experience the highest conversion spikes at 37% and 28%. Marketing efficiency drops drastically toward the end of the month, hitting rock bottom on the 20th (5.8%) and 29th (5.7%).
+
+<img width="800" height="800" alt="Campaign   Contact" src="https://github.com/user-attachments/assets/de688fe1-6e7a-401b-a7d2-4ca686d43b12" />
+
+
+### Recommendations
+#### Strategic Targeting Framework
+
+1. Target Previous Successes: Prioritize clients with a poutcome of "success" from past campaigns.
+Conversion rates spike significantly for individuals who previously engaged.
+2. Focus on Retirees and Students: Segment by job type; retirees and students show higher relative subscription rates to term deposits than blue-collar workers.
+3. Clean the Contact Data: Stop wasting resources on "unknown" channels. Prioritize data-cleaning campaigns to capture valid cell phone or telephone numbers before launching a marketing push.
+4. Shift Campaign Budgets: Allocate a larger portion of your annual marketing budget and agent hours to March and December. Scale back aggressive outbound calling in May, or use that month to test alternative, lower-cost digital offers.
+5. Optimize Call Scheduling: Front-load your calling queues. Focus heavy sales pushes during the first half of the month—specifically targeting dates around the 2nd and 10th—and avoid aggressive outreach on the 20th and 29th when client receptiveness is lowest.
+6. Engagement & Fatigue: Longer call durations correlate with higher conversions, whereas over-contacting within the same campaign (campaign) causes customer fatigue and lowers success rates.
+7. Historical Impact: A successful previous outcome (poutcome) and recent prior contacts (pdays/previous) strongly signal a higher likelihood of subscription.
+8. Interaction Power: Past campaign success (poutcome=success) remains the single strongest behavioral predictor for repeat term deposit subscription.
+9. Call Duration Impact: Call duration shows the strongest positive correlation with deposit subscription; however, it is frequently excluded from predictive models because duration is only known after a call ends, making it useless for pre-campaign targeting. 
+10. Demographic Trends: Retired individuals and students often display a higher relative propensity to subscribe compared to other working segments, despite lower overall volume.
+
+11. Class Imbalance: The target variable y is heavily imbalanced, with only about 10–12% of clients subscribing, requiring techniques like SMOTE or weighted Logistic Regression for accurate classification.
+
 
