@@ -20,6 +20,8 @@ This dataset captures the outcomes of direct marketing campaigns conducted by a 
 - pandas
 - matplotlib
 - plotly express
+-  Numpy
+- seaborn
 
 ### Data cleaning
 - Missing value
