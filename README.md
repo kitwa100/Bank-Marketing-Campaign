@@ -73,6 +73,17 @@ This dataset captures the outcomes of direct marketing campaigns conducted by a 
 
 <img width="800" height="800" alt="Campaign   Contact" src="https://github.com/user-attachments/assets/de688fe1-6e7a-401b-a7d2-4ca686d43b12" />
 
+### Fatigue and Familiarity
+
+1. Client Fatigue: Conversion Decay by Current Campaign Volume (campaign)- The variable campaign tracks the total number of contacts performed during the current marketing wave for a specific client. The data shows a strict diminishing marginal return that quickly devolves into severe client friction. 
+
+ 2. The Familiarity Effect: Conversion Rate by Historical Touchpoints (previous)
+In stark contrast to current campaign volume, the variable previous (the number of contacts performed before the current campaign) reveals a positive correlation with success.
+
+3. Historical Interactions (previous) - Prioritize warm leads. Filter dialing queues to prioritize clients who responded positively or engaged meaningfully in past quarters.
+
+<img width="800" height="800" alt="Familiarity   fatig" src="https://github.com/user-attachments/assets/16b663ae-90ec-403f-9c1d-826fe1be919b" />
+
 
 ### Recommendations
 #### Strategic Targeting Framework
